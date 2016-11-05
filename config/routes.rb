@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root 'photos#index'
-  get 'pages/home'
+  root 'pages#home'
 
   resources :photos
   devise_for :users

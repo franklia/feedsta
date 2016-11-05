@@ -19,14 +19,70 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.home-background {
-	// background-color: #f8f8f8;
-	background-color: #e8e8e8;
-	padding: 25px 0;
+body, html {
+	height: 100%;
 }
 
-.home-content {
+.wrapper {
+	// background-color: #f8f8f8;
+	background-color: #e8e8e8;
+	min-height: 400px;
+	height: 100%;
+
+}
+
+.height {
+	height: 100%;
+}
+
+#pages-container {
 	background-color: #fff;
 	text-align: center;
 	padding: 25px 10px;
 }
+
+#app-container {
+	background-color: #fff;
+	height: 100%;
+}
+
+#app-body {
+
+}
+
+#app-header {
+	height: 6vh;
+}
+
+#app-header .col-md-4 {
+	height: 100%;
+	display: table;
+}
+
+#app-header .col-md-4 .fa {
+	font-size: 2em;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#app-footer {
+	position: absolute;
+    left: 15;
+    bottom: 0;
+    height: 6vh;
+    width: 100%;
+}
+
+#app-footer .col-md-4 {
+	height: 100%;
+	display: table;
+}
+
+#app-footer .col-md-4 .fa {
+	font-size: 2em;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
