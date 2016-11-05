@@ -9,6 +9,8 @@ gem 'mysql2', '~> 0.4.4'
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem 'instagram'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

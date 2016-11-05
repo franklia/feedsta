@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<div class="container-fluid home-background">
+	  	<% if user_signed_in? %>
+	  		<%= render 'layouts/navbar' %>
+	  	<% end %>
+	    <%= yield %>
+	</div>
   </body>
 </html>
