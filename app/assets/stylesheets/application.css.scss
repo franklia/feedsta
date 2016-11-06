@@ -26,7 +26,7 @@ body, html {
 .wrapper {
 	// background-color: #f8f8f8;
 	background-color: #e8e8e8;
-	min-height: 400px;
+	min-height: 600px;
 	height: 100%;
 
 }
@@ -51,7 +51,8 @@ body, html {
 }
 
 #app-header {
-	height: 6vh;
+	height: 8vh;
+	min-height: 50px;
 }
 
 #app-header .col-md-4 {
@@ -59,7 +60,13 @@ body, html {
 	display: table;
 }
 
-#app-header .col-md-4 .fa {
+.insta-handle {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 1.3em;
+}
+
+.fa-settings {
 	font-size: 2em;
 	display: table-cell;
 	vertical-align: middle;
@@ -69,8 +76,9 @@ body, html {
 	position: absolute;
     left: 15;
     bottom: 0;
-    height: 6vh;
+    height: 8vh;
     width: 100%;
+    min-height: 50px;
 }
 
 #app-footer .col-md-4 {
