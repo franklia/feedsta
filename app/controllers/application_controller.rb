@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
 	devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 	end
 
+	# To redirect to photos/index after logging in
+	def after_sign_in_path_for(resource)
+      photos_path(resource)
+    end
+
 end
