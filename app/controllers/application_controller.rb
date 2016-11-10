@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	# To redirect to photos/index after logging in
-	def after_sign_in_path_for(resource)
-      # photos_path(resource)
-      redirect_to "https://api.instagram.com/oauth/authorize/?client_id=ENV['INSTA_CLIENT_ID']&redirect_uri=REDIRECT-URI&response_type=code"
-    end
+	# def after_sign_in_path_for(resource)
+ #      # photos_path(resource)
+ #      redirect_to "https://api.instagram.com/oauth/authorize/?client_id=ENV['INSTA_CLIENT_ID']&redirect_uri=REDIRECT-URI&response_type=code"
+ #    end
 
 end
