@@ -11,7 +11,14 @@ class ApplicationController < ActionController::Base
 
 	# To redirect to photos/index after logging in
 	def after_sign_in_path_for(resource)
-      "https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{redirect_url}&response_type=code"
+		if InstaAccount.exists?(user_id: current_user.id)
+			"https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{redirect_url}&response_type=code"
+		else
+			redirect_to 'photos/index'
+		end
+
+		token = InstaAccount.find_by user_id: current_user.id
+      	
     end
 
    def redirect_url
