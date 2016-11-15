@@ -22,12 +22,9 @@ class InstagramController < ApplicationController
 			@account.name = @response['user']['full_name']
 			@account.profile_pic = @response['user']['profile_picture']
 			@account.instagram_id = @response['user']['id']
-			if user_signed_in?
-				@account.user_id = 3
-			else 
-				@account.user_id = 5
-			end
+			@account.user_id = current_user.id
 			@account.save!
+			render 'photos/index'
 		end
 	end
 
