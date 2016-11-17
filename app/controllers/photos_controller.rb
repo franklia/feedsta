@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   require 'net/http'
   require 'json'
+
   before_action :authenticate_user!
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
@@ -10,12 +11,24 @@ class PhotosController < ApplicationController
     @photos = Photo.find_by(user_id: current_user.id)
     insta_account = InstaAccount.find_by(user_id: current_user.id)
 
+    uri = URI('https://api.instagram.com/v1/users/self/media/recent/')
     params = {'access_token' => insta_account.token, 'count' => 12}
+    uri.query = URI.encode_www_form(params)
 
-    insta_request = Net::HTTP.get(URI.parse("https://api.instagram.com/v1/users/self/media/recent/"), params)
-    @insta_photos = JSON.parse(insta_request.body)
+    Net::HTTP.start(uri.host, uri.port,
+      :use_ssl => uri.scheme == 'https') do |http|
+      request = Net::HTTP::Get.new uri
+      response = http.request request 
+      @insta_response = JSON.parse(response.body)
+    end
 
+    # # puts @response['data'][0]
+    # # byebug
+    @insta_photos = []
 
+    @insta_response['data'].each do |array|
+      @insta_photos << array['images']['low_resolution']['url']
+    end
 
   end
 
