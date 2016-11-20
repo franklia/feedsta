@@ -7,4 +7,6 @@
 	<%= link_to 'Create Account', new_user_registration_path, class: 'btn btn-primary' %>
 	<br><br>
 	<p>Have an account? <%= link_to 'Login', new_user_session_path %></p>
+	<br><br>
+	<%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
 </div>

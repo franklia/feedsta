@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords', instagram: 'instagram' }
+  devise_for :users, controllers: {instagram: 'instagram', photos: 'photos' }
  
 
   get 'instagram/auth', to: 'instagram#auth'

@@ -4,7 +4,9 @@ class InstagramController < ApplicationController
  	require 'json'
 
 	def auth
-		if params[:code]
+		if !params[:code]
+			redirect_to "https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{redirect_url}&response_type=code"
+		else
 			client_id = ENV['INSTA_CLIENT_ID']
 			client_secret = ENV['INSTA_SECRET_KEY']
 			grant_type = 'authorization_code'
@@ -19,18 +21,24 @@ class InstagramController < ApplicationController
 		    @account = InstaAccount.new
 			@account.token = @response['access_token']
 			@account.username = @response['user']['username']
-			@account.name = @response['user']['full_name']
-			@account.profile_pic = @response['user']['profile_picture']
+			@account.name = @response['user']['full_name'] unless @response['user']['full_name'].blank?
+			@account.profile_pic = @response['user']['profile_picture'] unless @response['user']['profile_picture'].blank?
 			@account.instagram_id = @response['user']['id']
 			@account.user_id = current_user.id
 			@account.save!
-			render 'photos/index'
+			redirect_to photos_path
 		end
 	end
 
 	def show
 			
 	end
+
+	private
+
+	def redirect_url
+  	'http://localhost:3000/instagram/auth'
+    end
 end
 
 

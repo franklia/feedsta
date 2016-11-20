@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 20161106052842) do
 
   create_table "insta_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "username"
-    t.string   "token"
+    t.string   "username",     null: false
+    t.string   "token",        null: false
     t.string   "profile_pic"
     t.bigint   "instagram_id"
     t.integer  "user_id"

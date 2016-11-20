@@ -1,6 +1,7 @@
 <div id="app-container" class="col-md-6 col-md-offset-3">
 	<%= render 'photos/header' %>
 
+	<p>Welcome <%= @user.first_name %>!</p>
 <!--   <div id="app-body"> -->
     <p id="notice"><%= notice %></p>
     <%= link_to 'New Photo', new_photo_path %>
@@ -20,14 +21,15 @@
 	      <% end %>
 	      <% unless @insta_photos.blank? %>
 	        <% @insta_photos.each do |photo| %>
-	          <div class="pictures">
-	            <img src=<%= photo %> class="img-responsive" >
+	          <div class="pictures-wrapper">
+	          	<div class="pictures">
+	            	<img src=<%= photo %> class="img-responsive" >
+	            </div>
 	          </div> 
 	        <% end %>
 		  <% end %>
 	    </ul>
 	  </div> <!-- Row -->
-
 
 
 	<br><br>

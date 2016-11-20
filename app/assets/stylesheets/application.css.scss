@@ -92,9 +92,15 @@ body, html {
 	vertical-align: middle;
 }
 
-.pictures {
+.pictures-wrapper {
 	display: inline-block;
 	width: 31%;
+	max-height: 208px;
+	overflow: hidden;
+}
+
+.pictures {
+
 }
 
 

@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.find_by(user_id: current_user.id)
+    @user = User.find_by(id: current_user.id)
     insta_account = InstaAccount.find_by(user_id: current_user.id)
 
     uri = URI('https://api.instagram.com/v1/users/self/media/recent/')
@@ -27,8 +28,8 @@ class PhotosController < ApplicationController
     @insta_photos = []
 
     @insta_response['data'].each do |array|
-      @insta_photos << array['images']['low_resolution']['url']
-    end
+    @insta_photos << array['images']['low_resolution']['url']
+  end
 
   end
 
