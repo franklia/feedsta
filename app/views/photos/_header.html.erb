@@ -1,5 +1,5 @@
 <div class="row" id="app-header">
 		<div class="col-md-4"></div>
-		<div class="col-md-4 text-center"><p class="insta-handle">iloveit.travel <i class="fa fa-caret-down" aria-hidden="true"></i></p></div>
-		<div class="col-md-4 text-right settings"><%= link_to '<i class="fa fa-cog fa-settings" aria-hidden="true"></i>'.html_safe, destroy_user_session_path, method: :delete %> </div>
+		<div class="col-md-4 photos-head-center"><p class="insta-handle">iloveit.travel <i class="fa fa-caret-down" aria-hidden="true"></i></p></div>
+		<div class="col-md-4 photos-head-right"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "settings" %> </div>
 </div>

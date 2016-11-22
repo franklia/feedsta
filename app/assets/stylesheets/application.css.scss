@@ -33,6 +33,7 @@ body, html {
 
 .height {
 	height: 100%;
+	overflow: scroll;
 }
 
 #pages-container {
@@ -44,6 +45,7 @@ body, html {
 #app-container {
 	background-color: #fff;
 	height: 100%;
+	padding: 0 1px;
 }
 
 #app-body {
@@ -66,20 +68,13 @@ body, html {
 	font-size: 1.3em;
 }
 
-.fa-settings {
-	font-size: 2em;
+.settings {
 	display: table-cell;
 	vertical-align: middle;
+	text-align: right;
 }
 
-#app-footer {
-	position: absolute;
-    left: 15;
-    bottom: 0;
-    height: 8vh;
-    width: 100%;
-    min-height: 50px;
-}
+
 
 #app-footer .col-md-4 {
 	height: 100%;
@@ -92,14 +87,30 @@ body, html {
 	vertical-align: middle;
 }
 
-.pictures-wrapper {
-	display: inline-block;
-	width: 31%;
+.photo-wrapper {
+	// display: inline-block;
+	// width: 31%;
 	overflow: hidden;
+	padding: 0 2px 0 2px;
+	margin-bottom: 3px;
 }
 
-.pictures {
-
+.photo-grid {
+	min-height: 100%;
+	margin: 0;
 }
+
+.app-footer {
+	// position: absolute;
+ //    left: 15;
+ //    bottom: 0;
+ //    height: 8vh;
+    width: 100%;
+    min-height: 50px;
+    margin-top: -50px;
+}
+
+
+
 
 

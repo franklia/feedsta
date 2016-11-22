@@ -8,8 +8,7 @@
 <!--   </div> -->
 
 
-	  <div class="row">
-	    <ul id="sortable">
+	  <div class="row photo-grid">
 	      <% unless @photo.blank? %>	
 		      <% @photos.each do |picture| %>
 		        <li class="ui-state-default">
@@ -21,14 +20,11 @@
 	      <% end %>
 	      <% unless @insta_photos.blank? %>
 	        <% @insta_photos.each do |photo| %>
-	          <div class="pictures-wrapper">
-	          	<div class="pictures">
-	            	<img src=<%= photo %> class="img-responsive" >
-	            </div>
+	          <div class="photo-wrapper col-md-4">
+	            <img src=<%= photo %> class="img-responsive" >
 	          </div> 
 	        <% end %>
 		  <% end %>
-	    </ul>
 	  </div> <!-- Row -->
 
 
