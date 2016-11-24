@@ -7,4 +7,6 @@ class Photo < ApplicationRecord
   belongs_to :user
   
   enum status: [ :saved, :pending, :posted ]
+
+  mount_uploader :file, FileUploader
 end
