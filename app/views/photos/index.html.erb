@@ -1,34 +1,46 @@
-<div id="app-container" class="col-md-6 col-md-offset-3">
-	<%= render 'photos/header' %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container col-md-6 col-md-offset-3">
+    <%= render 'photos/header' %>
+  </div>
+</nav>
 
-	<p>Welcome <%= @user.first_name %>!</p>
-<!--   <div id="app-body"> -->
-    <p id="notice"><%= notice %></p>
-    <%= link_to 'New Photo', new_photo_path %>
-<!--   </div> -->
+<div class="row">
+	<div class="app-container col-md-6 col-md-offset-3">
+		
+		<div class="app-body">
+			<p>Welcome <%= @user.first_name %>!</p>
+		<!--   <div id="app-body"> -->
+		    <p id="notice"><%= notice %></p>
+		    <%= link_to 'New Photo', new_photo_path %>
+		<!--   </div> -->
 
+			  <div class="row photo-grid">
+			      <% unless @photo.blank? %>	
+				      <% @photos.each do |picture| %>
+				        <li class="ui-state-default">
+				          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pictures">
+				            <%= image_tag picture.file, class: "img-responsive", height: "242", width: "242" %>
+				          </div> 
+				        </li>
+				      <% end %>
+			      <% end %>
+			      <% unless @insta_photos.blank? %>
+			        <% @insta_photos.each do |photo| %>
+			          <div class="photo-wrapper col-md-4">
+			            <img src=<%= photo %> class="img-responsive" >
+			          </div> 
+			        <% end %>
+				  <% end %>
+			  </div> <!-- Row -->
 
-	  <div class="row photo-grid">
-	      <% unless @photo.blank? %>	
-		      <% @photos.each do |picture| %>
-		        <li class="ui-state-default">
-		          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pictures">
-		            <%= image_tag picture.file, class: "img-responsive", height: "242", width: "242" %>
-		          </div> 
-		        </li>
-		      <% end %>
-	      <% end %>
-	      <% unless @insta_photos.blank? %>
-	        <% @insta_photos.each do |photo| %>
-	          <div class="photo-wrapper col-md-4">
-	            <img src=<%= photo %> class="img-responsive" >
-	          </div> 
-	        <% end %>
-		  <% end %>
-	  </div> <!-- Row -->
-
-
-	<br><br>
-
-	<%= render 'photos/footer' %>
+			<br><br>
+			<div class="push"></div>
+		</div>
+	</div>
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container col-md-6 col-md-offset-3">
+    <%= render 'photos/footer' %>
+  </div>
+</nav>
