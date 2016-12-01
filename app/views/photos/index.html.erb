@@ -6,13 +6,13 @@
 <!--   </div> -->
 
 	  <div class="row photo-grid">
-	      <% unless @photo.blank? %>	
-		      <% @photos.each do |picture| %>
-		        <li class="ui-state-default">
-		          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pictures">
-		            <%= image_tag picture.file, class: "img-responsive", height: "242", width: "242" %>
+	      <% unless @photos.blank? %>	
+		      <% @photos.each do |photo| %>
+<!-- 		        <li class="ui-state-default"> -->
+		          <div class="photo-wrapper col-md-4">
+		            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
 		          </div> 
-		        </li>
+<!-- 		        </li> -->
 		      <% end %>
 	      <% end %>
 	      <% unless @insta_photos.blank? %>

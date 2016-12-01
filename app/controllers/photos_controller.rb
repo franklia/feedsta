@@ -8,10 +8,35 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.find_by(user_id: current_user.id)
+    @photos = Photo.select(:url).where(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)
-    insta_account = InstaAccount.find_by(user_id: current_user.id)
 
+    # Get insta account info
+    insta_account = InstaAccount.find_by(user_id: current_user.id)
+    uri = URI('https://api.instagram.com/v1/users/self/')
+    params = {'access_token' => insta_account.token}
+    uri.query = URI.encode_www_form(params)
+
+    Net::HTTP.start(uri.host, uri.port,
+      :use_ssl => uri.scheme == 'https') do |http|
+      request = Net::HTTP::Get.new uri
+      response = http.request request 
+      @account = JSON.parse(response.body)
+    end
+
+    @account_info = []
+    @account['data'].each do |array|
+    @account_info << array['username']
+    @account_info << array['profile_picture']
+    @account_info << array['bio']
+    @account_info << array['counts']['media']
+    @account_info << array['counts']['follows']
+    @account_info << array['counts']['followed_by']
+    binding.pry
+    end
+
+    # Get insta photos
+    insta_account = InstaAccount.find_by(user_id: current_user.id)
     uri = URI('https://api.instagram.com/v1/users/self/media/recent/')
     params = {'access_token' => insta_account.token, 'count' => 12}
     uri.query = URI.encode_www_form(params)
@@ -23,14 +48,10 @@ class PhotosController < ApplicationController
       @insta_response = JSON.parse(response.body)
     end
 
-    # # puts @response['data'][0]
-    # # byebug
     @insta_photos = []
-
     @insta_response['data'].each do |array|
     @insta_photos << array['images']['low_resolution']['url']
-  end
-
+    end
   end
 
   # GET /photos/1

@@ -9,8 +9,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Cloudinary's gem plugin to switch to cloud storage and image processing
   include Cloudinary::CarrierWave
 
-  version :thumbnail do
-    resize_to_fit(500, 500)
+  # version :thumbnail do
+  #   resize_to_fit(500, 500)
+  # end
+
+  version :standard do
+    process :eager => true
+    process :resize_to_fill => [500, 500, :center]          
   end
 
   # Choose what kind of storage to use for this uploader:
@@ -38,16 +43,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
-
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
