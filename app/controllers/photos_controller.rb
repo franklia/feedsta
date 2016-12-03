@@ -5,7 +5,12 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
-  # GET /photos
+  # show all saved photos, without showing instagram photos
+  def saved
+    @saved_photos = Photo.where(user_id: current_user.id)    
+  end
+
+  # GET /photos (show the feed)
   def index
     @photos = Photo.select(:url).where(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)

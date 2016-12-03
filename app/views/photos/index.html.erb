@@ -1,7 +1,6 @@
 <div class="app-body">
 	<p>Welcome <%= @user.first_name %>!</p>
     <p id="notice"><%= notice %></p>
-    <%= link_to 'New Photo', new_photo_path %>
 
     <div class="row account-info">
     	<div class="col-md-4">
@@ -19,11 +18,11 @@
 	<div class="row photo-grid">
 	  <% unless @photos.blank? %>	
 	      <% @photos.each do |photo| %>
-	<!-- 		        <li class="ui-state-default"> -->
+	<!-- 	<li class="ui-state-default"> -->
 	          <div class="photo-wrapper col-md-4">
 	            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
 	          </div> 
-	<!-- 		        </li> -->
+	<!-- 	</li> -->
 	      <% end %>
 	  <% end %>
 	  <% unless @insta_photos.blank? %>

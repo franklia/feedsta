@@ -3,13 +3,7 @@ class ApplicationController < ActionController::Base
 
   	before_action :authenticate_user!
 	before_action :configure_permitted_parameters, if: :devise_controller?
-
-	def current_user
-	  @current_user ||= (warden.authenticate(scope: :user) || User.new)
-	end
-
-
-	# @account = InstaAccount.find(current_user.id)
+	before_action :account_info
 
 	protected
 
@@ -24,6 +18,10 @@ class ApplicationController < ActionController::Base
 		else
 			instagram_auth_path
 		end
+    end
+
+    def account_info
+    	@account = InstaAccount.find(current_user.id)
     end
 
 end

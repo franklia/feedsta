@@ -5,5 +5,10 @@ Rails.application.routes.draw do
  
   get 'instagram/auth', to: 'instagram#auth'
 
-  resources :photos
+  resources :photos do
+  	collection do
+  		get 'saved'
+  	end
+  end
+
 end
