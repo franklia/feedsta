@@ -1,3 +1,32 @@
 // Place all the styles related to the Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.account-info {
+	margin: 0 0 2em 0;
+}
+
+.account-info div h1 {
+	font-size: 34px;
+	margin: 0 0 0.6em 0;
+}
+
+.account-info div span {
+	margin-right: 30px;
+	font-size: 16px;
+}
+
+.account-info p {
+	margin: 1.3em 10px 0 0;
+	font-size: 16px;
+	line-height: 150%;
+}
+
+.account-info img {
+	display: block;
+	margin: 0 auto;
+}
+
+.img-circle {
+    border-radius: 50%;
+}

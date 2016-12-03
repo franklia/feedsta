@@ -1,26 +1,37 @@
 <div class="app-body">
 	<p>Welcome <%= @user.first_name %>!</p>
-<!--   <div id="app-body"> -->
     <p id="notice"><%= notice %></p>
     <%= link_to 'New Photo', new_photo_path %>
-<!--   </div> -->
 
-	  <div class="row photo-grid">
-	      <% unless @photos.blank? %>	
-		      <% @photos.each do |photo| %>
-<!-- 		        <li class="ui-state-default"> -->
-		          <div class="photo-wrapper col-md-4">
-		            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
-		          </div> 
-<!-- 		        </li> -->
-		      <% end %>
-	      <% end %>
-	      <% unless @insta_photos.blank? %>
-	        <% @insta_photos.each do |photo| %>
+    <div class="row account-info">
+    	<div class="col-md-4">
+    		<%= image_tag(@account_info[:profile_picture], class: "img-circle") %>
+    	</div>
+    	<div class="col-md-8">
+    		<h1><%= @account_info[:username] %></h1>
+			<span><strong><%= @account_info[:posts] %></strong>&nbsp;posts</span>
+			<span><strong><%= @account_info[:followed_by] %></strong>&nbsp;followers</span>
+			<span><strong><%= @account_info[:following] %></strong>&nbsp;following</span>
+			<p><%= @account_info[:bio] %></p>
+    	</div>
+    </div>
+
+	<div class="row photo-grid">
+	  <% unless @photos.blank? %>	
+	      <% @photos.each do |photo| %>
+	<!-- 		        <li class="ui-state-default"> -->
 	          <div class="photo-wrapper col-md-4">
-	            <img src=<%= photo %> class="img-responsive" >
+	            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
 	          </div> 
-	        <% end %>
-		  <% end %>
-	  </div> <!-- Row -->
+	<!-- 		        </li> -->
+	      <% end %>
+	  <% end %>
+	  <% unless @insta_photos.blank? %>
+	    <% @insta_photos.each do |photo| %>
+	      <div class="photo-wrapper col-md-4">
+	        <img src=<%= photo %> class="img-responsive" >
+	      </div> 
+	    <% end %>
+	  <% end %>
+	</div> <!-- Row -->
 </div>

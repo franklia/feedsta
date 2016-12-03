@@ -6,7 +6,6 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
-  # GET /photos.json
   def index
     @photos = Photo.select(:url).where(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)
@@ -24,16 +23,13 @@ class PhotosController < ApplicationController
       @account = JSON.parse(response.body)
     end
 
-    @account_info = []
-    @account['data'].each do |array|
-    @account_info << array['username']
-    @account_info << array['profile_picture']
-    @account_info << array['bio']
-    @account_info << array['counts']['media']
-    @account_info << array['counts']['follows']
-    @account_info << array['counts']['followed_by']
-    binding.pry
-    end
+    @account_info = {}
+    @account_info.store(:username, @account["data"]["username"])
+    @account_info.store(:bio, @account["data"]["bio"])
+    @account_info.store(:profile_picture, @account["data"]["profile_picture"])
+    @account_info.store(:posts, @account["data"]["counts"]["media"])
+    @account_info.store(:followed_by, @account["data"]["counts"]["followed_by"])
+    @account_info.store(:following, @account["data"]["counts"]["follows"])
 
     # Get insta photos
     insta_account = InstaAccount.find_by(user_id: current_user.id)

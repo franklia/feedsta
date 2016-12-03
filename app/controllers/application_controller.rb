@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   	protect_from_forgery with: :exception
 
+  	before_action :authenticate_user!
 	before_action :configure_permitted_parameters, if: :devise_controller?
+
+	def current_user
+	  @current_user ||= (warden.authenticate(scope: :user) || User.new)
+	end
+
+
+	# @account = InstaAccount.find(current_user.id)
 
 	protected
 
@@ -17,4 +25,5 @@ class ApplicationController < ActionController::Base
 			instagram_auth_path
 		end
     end
+
 end
