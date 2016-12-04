@@ -9,6 +9,17 @@ $(document).ready(function() {
     	var width = $('.photo-wrapper').width();
     	$('.photo-wrapper').css({ height : width + "px" }); 
     });
+
+    $( function() {
+        $( "#sortable" ).sortable({
+          revert: true
+        });
+        $( "#draggable" ).draggable({
+          connectToSortable: "#sortable",
+          helper: "clone",
+          revert: "invalid"
+        });
+    });
 });
 
 // 

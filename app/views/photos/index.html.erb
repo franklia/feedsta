@@ -15,16 +15,16 @@
     	</div>
     </div>
 
-	<div class="row photo-grid">
+     <div id="sortable" class="photo-grid">
 	  <% unless @photos.blank? %>	
 	      <% @photos.each do |photo| %>
-	<!-- 	<li class="ui-state-default"> -->
-	          <div class="photo-wrapper col-md-4">
-	            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
+	          <div class="photo-wrapper col-md-4 ui-state-default" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left;">
 	          </div> 
-	<!-- 	</li> -->
 	      <% end %>
 	  <% end %>
+	</div>  
+
+	<div class="row">
 	  <% unless @insta_photos.blank? %>
 	    <% @insta_photos.each do |photo| %>
 	      <div class="photo-wrapper col-md-4">
@@ -32,5 +32,5 @@
 	      </div> 
 	    <% end %>
 	  <% end %>
-	</div> <!-- Row -->
+	</div> 
 </div>
