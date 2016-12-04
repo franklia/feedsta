@@ -26,6 +26,52 @@ body, html {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.ptt {padding-top: 2px;}
+.ptpx {padding-top: 1px;}
+.ptn, .pvn, .pan { padding-top: 0px !important; }
+.pts, .pvs, .pas { padding-top: 5px !important; }
+.ptm, .pvm, .pam { padding-top: 10px !important; }
+.ptl, .pvl, .pal { padding-top: 20px !important; }
+.ptxl, .pvxl, .paxl { padding-top: 40px !important; }
+.prn, .phn, .pan { padding-right: 0px !important; }
+.prs, .phs, .pas { padding-right: 5px !important; }
+.prm, .phm, .pam { padding-right: 10px !important; }
+.prl, .phl, .pal { padding-right: 20px !important; }
+.prxl, .phxl, .paxl { padding-right: 40px !important; }
+.pbn, .pvn, .pan { padding-bottom: 0px !important; }
+.pbs, .pvs, .pas { padding-bottom: 5px !important; }
+.pbm, .pvm, .pam { padding-bottom: 10px !important; }
+.pbl, .pvl, .pal { padding-bottom: 20px !important; }
+.pbxl, .pvxl, .paxl { padding-bottom: 40px !important; }
+.pln, .phn, .pan { padding-left: 0px !important; }
+.pls, .phs, .pas { padding-left: 5px !important; }
+.plm, .phm, .pam { padding-left: 10px !important; }
+.pll, .phl, .pal { padding-left: 20px !important; }
+.plxl, .phxl, .paxl { padding-left: 40px !important; }
+.mtn, .mvn, .man { margin-top: 0px !important; }
+.mts, .mvs, .mas { margin-top: 5px !important; }
+.mtt {margin-top: 2px;}
+.mtm, .mvm, .mam { margin-top: 10px !important; }
+.mtl, .mvl, .mal { margin-top: 20px !important; }
+.mtxl, .mvxl, .maxl { margin-top: 40px !important; }
+.mrn, .mhn, .man { margin-right: 0px !important; }
+.mrs, .mhs, .mas { margin-right: 5px !important; }
+.mrm, .mhm, .mam { margin-right: 10px !important; }
+.mrl, .mhl, .mal { margin-right: 20px !important; }
+.mrxl, .mhxl, .maxl { margin-right: 40px !important; }
+.mbn, .mvn, .man { margin-bottom: 0px !important; }
+.mbs, .mvs, .mas { margin-bottom: 5px !important; }
+.mbm, .mvm, .mam { margin-bottom: 10px !important; }
+.mbl, .mvl, .mal { margin-bottom: 20px !important; }
+.mbxl, .mvxl, .maxl { margin-bottom: 40px !important; }
+.mln, .mhn, .man { margin-left: 0px !important; }
+.mls, .mhs, .mas { margin-left: 5px !important; }
+.mlm, .mhm, .mam { margin-left: 10px !important; }
+.mll, .mhl, .mal { margin-left: 20px !important; }
+.mlxl, .mhxl, .maxl { margin-left: 40px !important; }
+.mtxlr { margin-top: -60px !important; }
+.mbxlr { margin-bottom: -60px !important; }
+
 a:hover, a:focus {
     background-color: #fff;
     text-decoration: underline;
@@ -95,17 +141,22 @@ body {
 	display: table;
 }
 
-.app-footer .col-md-4 .fa {
+.app-footer .col-md-4 a {
 	font-size: 2em;
 	display: table-cell;
 	vertical-align: middle;
+	color: #000;
 }
 
 .app-footer a:hover {
 	text-decoration: none;
+	background-color: #eeeeee;
 }
 
-
+.navbar-default {
+	border-color: #D0CFCF;
+	background-color: #eeeeee;
+}
 
 
 
