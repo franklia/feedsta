@@ -6,9 +6,11 @@
 	<div class="row photo-grid">
 	  <% unless @saved_photos.blank? %>	
 	      <% @saved_photos.each do |photo| %>
+	      	<a href="<%= edit_photo_path(id: photo.id) %>">
 	          <div class="photo-wrapper col-md-4">
 	            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
 	          </div> 
+	        </a>
 	      <% end %>
 	  <% end %>
 	</div> <!-- Row -->

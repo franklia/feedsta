@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
 	// Set .pictures-wrapper height onload
 	var width = $('.photo-wrapper').width();

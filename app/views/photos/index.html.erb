@@ -1,5 +1,5 @@
 <div class="app-body">
-	<p>Welcome <%= @user.first_name %>!</p>
+	<p>Welcome <%= @user.first_name %>!</p><br>
     <p id="notice"><%= notice %></p>
 
     <div class="row account-info">
@@ -18,8 +18,8 @@
      <div id="sortable" class="photo-grid">
 	  <% unless @photos.blank? %>	
 	      <% @photos.each do |photo| %>
-	          <div class="photo-wrapper col-md-4 ui-state-default" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left;">
-	          </div> 
+          	<div class="photo-wrapper col-md-4 ui-state-default" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left;">
+          	</div> 
 	      <% end %>
 	  <% end %>
 	</div>  

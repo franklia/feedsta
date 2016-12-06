@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :account_info
 
   # show all saved photos, without showing instagram photos
   def saved
@@ -12,7 +13,7 @@ class PhotosController < ApplicationController
 
   # GET /photos (show the feed)
   def index
-    @photos = Photo.select(:url).where(user_id: current_user.id)
+    @photos = Photo.select(:id, :url).where(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)
 
     # Get insta account info
@@ -119,5 +120,9 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:caption, :status, :position, :photo_credit, :url, :user_id)
+    end
+
+    def account_info
+        @account = InstaAccount.find(current_user.id)
     end
 end

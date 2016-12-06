@@ -82,6 +82,11 @@ body {
 	padding-top: 50px; 
 }
 
+.row {
+	// margin-left: 0;
+	// margin-right: 0;
+}
+
 #pages-container {
 	background-color: #fff;
 	text-align: center;
@@ -127,6 +132,11 @@ body {
 	margin-bottom: 4px;
 }
 
+.saved-wrapper {
+	padding: 0 4px 0 2px;
+	margin-bottom: 4px;
+}
+
 .photo-grid {
 	min-height: 100%;
 	margin: 0;
@@ -157,6 +167,7 @@ body {
 	border-color: #D0CFCF;
 	background-color: #eeeeee;
 }
+
 
 
 
