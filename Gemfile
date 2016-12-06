@@ -4,8 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'dotenv-rails', :groups => [:development, :test]
-# Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.4.4'
 
 gem 'devise'
 gem 'simple_form'
@@ -46,6 +44,15 @@ group :development, :test do
   # More stable debugger than byebug
   gem 'pry'
   gem 'pry-rails'
+
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '~> 0.4.4'
+
+end
+
+group :production do
+  gem 'pg', '~> 0.19.0'
+  gem 'rails_12factor'
 end
 
 group :development do
