@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :account_info
+  # before_action :account_info
 
   # show all saved photos, without showing instagram photos
   def saved
@@ -122,7 +122,7 @@ class PhotosController < ApplicationController
       params.require(:photo).permit(:caption, :status, :position, :photo_credit, :url, :user_id)
     end
 
-    def account_info
-        @account = InstaAccount.find(current_user.id)
-    end
+    # def account_info
+    #     @account = InstaAccount.find(current_user.id)
+    # end
 end

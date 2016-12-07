@@ -5,12 +5,12 @@ class InstagramController < ApplicationController
 
 	def auth
 		if !params[:code]
-			redirect_to "https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{redirect_url}&response_type=code"
+			redirect_to "https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{ENV['REDIRECT_URL']}&response_type=code"
 		else
 			client_id = ENV['INSTA_CLIENT_ID']
 			client_secret = ENV['INSTA_SECRET_KEY']
 			grant_type = 'authorization_code'
-			redirect_uri = 'http://localhost:3000/instagram/auth'
+			redirect_uri = ENV["REDIRECT_URL"]
 			code = params[:code]
 
 		    params = {'client_id' => client_id, 'client_secret' => client_secret, 'grant_type' => grant_type, 'redirect_uri' => redirect_uri, 'code' => code}
@@ -36,9 +36,9 @@ class InstagramController < ApplicationController
 
 	private
 
-	def redirect_url
-  	'http://localhost:3000/instagram/auth'
-    end
+	# def redirect_url
+ #  	'http://localhost:3000/instagram/auth'
+ #    end
 end
 
 
