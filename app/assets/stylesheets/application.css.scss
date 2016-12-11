@@ -19,12 +19,20 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* RESETS */
+
 body, html {
 	height: 100%;
 	height: 0;
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
 }
+
+h2 {
+	margin-bottom: 20px;
+}
+
+/* MARGIN & PADDING CLASSES */
 
 .ptt {padding-top: 2px;}
 .ptpx {padding-top: 1px;}
@@ -72,37 +80,13 @@ body, html {
 .mtxlr { margin-top: -60px !important; }
 .mbxlr { margin-bottom: -60px !important; }
 
-a:hover, a:focus {
-    background-color: #fff;
-    text-decoration: underline;
-}
 
-// To allow space for fixed header
-body {
-	padding-top: 50px; 
-}
-
-.row {
-	// margin-left: 0;
-	// margin-right: 0;
-}
-
-#pages-container {
-	background-color: #fff;
-	text-align: center;
-	padding: 25px 10px;
-}
+/* APPLICATION WIDE CSS */
 
 .app-container {
-	margin-top: 30px;
+	margin-top: 80px;
 	margin-bottom: 80px;
 }
-
-// .app-body {
-// 	// margin-bottom: -50px;
-// 	// max-height: 400px;
-// 	overflow: scroll;
-// }
 
 #app-header {
 	height: 8vh;
@@ -166,6 +150,10 @@ body {
 .navbar-default {
 	border-color: #D0CFCF;
 	background-color: #eeeeee;
+}
+
+.panel {
+	margin: 0 10px 10px 10px;
 }
 
 
