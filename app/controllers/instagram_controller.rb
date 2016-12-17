@@ -34,11 +34,6 @@ class InstagramController < ApplicationController
 			
 	end
 
-	private
-
-	# def redirect_url
- #  	'http://localhost:3000/instagram/auth'
- #    end
 end
 
 
