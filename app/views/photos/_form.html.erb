@@ -1,4 +1,3 @@
-<%= image_tag (@photo.url_url(:standard)), class: "col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 mvl phn" %>
 <%= simple_form_for @photo, html: {multipart: true} do |f| %>
   <%= f.error_notification %>
 
@@ -8,14 +7,7 @@
     <%= f.input :url, as: :file, label: "Select New Photo"%>
   </div>
   <br>
-  <p>
-    <label>
-      <%= f.check_box :remove_url %>
-      Delete Image
-    </label>
-  </p>
-  <br>
   <div class="form-actions">
-    <%= f.button :submit, "Upload Photo" %>
+    <%= f.button :submit, "Save Photo", class: "btn-success" %>
   </div>
 <% end %>

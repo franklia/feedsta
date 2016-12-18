@@ -29,11 +29,20 @@ body, html {
 }
 
 h1 {
-	font-size: 30px;
+	font-size: 25px;
+	margin: 0 0 20px 0; 
 }
 
 h2 {
 	margin-bottom: 20px;
+}
+
+.panel {
+	margin: 0 10px 10px 10px;
+}
+
+.panel-body {
+	padding: 0 15px 15px 15px;
 }
 
 /* MARGIN & PADDING CLASSES */
@@ -117,7 +126,13 @@ h2 {
 .photo-wrapper {
 	overflow: hidden;
 	padding: 0 2px 0 2px;
-	margin-bottom: 4px;
+	margin: 0 2px 4px 2px;
+}
+
+.pending {
+	// overflow: hidden;
+	// padding: 0 2px 0 2px;
+	
 }
 
 .saved-wrapper {
@@ -156,9 +171,6 @@ h2 {
 	background-color: #eeeeee;
 }
 
-.panel {
-	margin: 0 10px 10px 10px;
-}
 
 
 

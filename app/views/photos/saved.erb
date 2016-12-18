@@ -1,8 +1,6 @@
-<div class="app-body">
-
+<%= render "layouts/container-start" %>
+    <h1>Saved Photos</h1>
     <p id="notice"><%= notice %></p>
-    <h2 class="mbl">Saved Photos</h2>
-
 	<div class="row photo-grid">
 	  <% unless @saved_photos.blank? %>	
 	      <% @saved_photos.each do |photo| %>
@@ -14,5 +12,4 @@
 	      <% end %>
 	  <% end %>
 	</div> <!-- Row -->
-
-</div>
+<%= render "layouts/container-start" %>
