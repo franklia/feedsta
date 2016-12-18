@@ -22,7 +22,7 @@
  <div id="sortable" class="photo-grid">
   <% unless @photos.blank? %>	
       <% @photos.each do |photo| %>
-      	<div class="photo-wrapper col-xs-4 col-sm-4 col-md-4 ui-state-default" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left; width: 32.3%">
+      	<div class="photo-wrapper col-xs-4 col-sm-4 col-md-4 ui-state-default" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left; width: 32.2%">
       		<i class="fa fa-picture-o fa-lg pull-right" aria-hidden="true" style="color: black; margin: 5px;"></i>
       	</div> 
       <% end %>
@@ -32,7 +32,7 @@
 <div>
   <% unless @insta_photos.blank? %>
     <% @insta_photos.each do |photo| %>
-      <div class="photo-wrapper col-xs-4 col-sm-4 col-md-4" style="background-image: url(<%= photo %>); background-size: cover; float: left; width: 32.3%">
+      <div class="photo-wrapper col-xs-4 col-sm-4 col-md-4" style="background-image: url(<%= photo %>); background-size: cover; float: left; width: 32.2%">
       </div>
       <!-- <div class="photo-wrapper col-xs-4 col-sm-4 col-md-4">
         <img src=<%= photo %> class="img-responsive" >
