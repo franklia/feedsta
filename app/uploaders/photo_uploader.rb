@@ -13,6 +13,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   resize_to_fit(500, 500)
   # end
 
+  # This crops image in the same way that Instagram does
   version :standard do
     process :eager => true
     process :resize_to_fill => [500, 500, :center]          
