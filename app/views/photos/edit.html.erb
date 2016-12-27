@@ -7,17 +7,6 @@
 		</div>
 		<%= button_to "Delete Photo", photo_path, :class => "btn btn-danger mtm mbl", :method => :delete, data: {confirm: "Are you sure you want to permanently delete this photo?"} %>
 		<%= render 'form', photo: @photo %>
-<!-- 		<%= simple_form_for @photo, html: {multipart: true} do |f| %>
-		  <%= f.error_notification %>
-		  <div class="form-inputs">
-		    <%= f.input :caption %>
-		    <%= f.input :photo_credit %>
-		    <%= f.input :url, as: :file, label: "Select New Photo"%>
-		  </div>
-		  <div class="form-actions mtl">
-		    <%= f.button :submit, "Upload Photo", class: "btn-success" %>
-		  </div>
-		<% end %> -->
 	</div>
 </div>
 <%= render "layouts/container-end" %>

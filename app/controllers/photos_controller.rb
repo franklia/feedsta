@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
 
   # GET /photos (show the feed)
   def index
-    @photos = Photo.select(:id, :url).where(user_id: current_user.id)
+    @photos = Photo.select(:id, :url).where(user_id: current_user.id).where(status: 'pending')
     @user = User.find_by(id: current_user.id)
 
     # Get insta account info

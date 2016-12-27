@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.collection_radio_buttons :status, [['saved', 'Saved'], ['pending', 'Pending']], :first, :last %>
     <%= f.input :caption %>
     <%= f.input :photo_credit %>
     <%= f.input :url, as: :file, label: "Select New Photo"%>
@@ -11,3 +12,4 @@
     <%= f.button :submit, "Save Photo", class: "btn-success" %>
   </div>
 <% end %>
+
