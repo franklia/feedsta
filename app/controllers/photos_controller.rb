@@ -59,6 +59,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+    redirect_to action: "saved"
   end
 
   # GET /photos/new

@@ -1,12 +1,12 @@
 <div id="pages-container" class="col-md-4 col-md-offset-4">
-	<%= image_tag('sbs_thefeed.png',  width: '150px') %>
+	<h1>Feedsta</h1>
+	<h3>Visualise photos in your Instagram feed before posting</h3>
 	<br><br>
-	<p>Visualise your instagram photos before posting to your feed.</p>
-	<p>Drag and drop, too easy!</p>
-
+	<p>1. Add photos to your account</p>
+	<p>2. Drag and drop at the top of your feed</p>
+	<p>3. Save the order for future posts</p>
+	<br>
 	<%= link_to 'Create Account', new_user_registration_path, class: 'btn btn-primary' %>
 	<br><br>
 	<p>Have an account? <%= link_to 'Login', new_user_session_path %></p>
-	<br><br>
-	<%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
 </div>

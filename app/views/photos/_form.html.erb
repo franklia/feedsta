@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.collection_radio_buttons :status, [['saved', 'Saved'], ['pending', 'Pending']], :first, :last %>
+    <label>Show photo in feed &nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <%= f.collection_radio_buttons :status, [['saved', 'No'], ['pending', 'Yes']], :first, :last %>
     <%= f.input :caption %>
     <%= f.input :photo_credit %>
     <%= f.input :url, as: :file, label: "Select New Photo"%>

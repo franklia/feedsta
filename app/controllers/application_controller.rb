@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 	end
 
-	# To redirect to photos/index after logging i
+	# To redirect to photos/index after logging in
 	def after_sign_in_path_for(resource)
 		if InstaAccount.exists?(user_id: current_user.id)
 			photos_path
