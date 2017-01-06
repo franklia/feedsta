@@ -31,6 +31,7 @@ class PhotosController < ApplicationController
 
     @account_info = {}
     @account_info.store(:username, @account["data"]["username"])
+    @account_info.store(:full_name, @account["data"]["full_name"])
     @account_info.store(:bio, @account["data"]["bio"])
     @account_info.store(:profile_picture, @account["data"]["profile_picture"])
     @account_info.store(:posts, @account["data"]["counts"]["media"])

@@ -10,6 +10,7 @@ $(document).on('turbolinks:load', function() {
     	$('.photo-wrapper').css({ height : width + "px" }); 
     });
 
+    // Drag and drop for photos in feed
     $( function() {
         $( "#sortable" ).sortable({
           revert: true
@@ -20,6 +21,6 @@ $(document).on('turbolinks:load', function() {
           revert: "invalid"
         });
     });
-});
 
-// 
+    // 
+});
