@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :photos do
   	collection do
   		get 'saved'
+  		post 'save_order'
   	end
   end
 

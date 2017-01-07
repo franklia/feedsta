@@ -23,7 +23,7 @@
       <p class="text-center">following</p>
     </div>
 
-    <button type="button" class="btn save-order-btn mbl">Save Photo Order</button>
+    <button id="save-photo-order" type="button" class="btn save-order-btn mbl">Save Photo Order</button>
   </div>
 
 <div class="row">
@@ -36,7 +36,7 @@
  <div id="sortable" class="photo-grid">
   <% unless @photos.blank? %>	
       <% @photos.each do |photo| %>
-        <div id="position_<%= photo.id %>" class="photo-wrapper col-xs-4 col-sm-4 col-md-4 ui-state-default" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left; width: 32.2%">
+        <div id="position_<%= photo.id %>" class="photo-wrapper col-xs-4 col-sm-4 col-md-4" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left; width: 32.2%">
       		<a href="<%= edit_photo_path(id: photo.id) %>">
             <i class="fa fa-picture-o fa-2x pull-right" aria-hidden="true" style="color: black; margin: 5px;"></i>
           </a>

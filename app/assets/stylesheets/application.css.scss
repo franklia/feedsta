@@ -115,6 +115,12 @@ h3 {
 	display: table;
 }
 
+.logo {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 1.3em;
+}
+
 .insta-handle {
 	display: table-cell;
 	vertical-align: middle;
@@ -166,7 +172,7 @@ h3 {
 
 .navbar-default {
 	border-color: #D0CFCF;
-	background-color: #eeeeee;
+	background-color: #efefef;
 }
 
 label.collection_radio_buttons {
@@ -174,13 +180,8 @@ label.collection_radio_buttons {
 }
 
 .account-info {
-	margin: 0 0 2em 0;
+	margin: -1.3em 0 2em 0;
 }
-
-// .account-info div h1 {
-// 	font-size: 34px;
-// 	margin: 0 0 0.6em 0;
-// }
 
 .account-info div h6 {
 	font-size: 16px;
@@ -214,7 +215,7 @@ label.collection_radio_buttons {
 	line-height: 150%;
 }
 .account-bio h4 {
-	margin: 20px 10px 5px 10px;
+	margin: 5px 10px 5px 10px;
 	font-size: 16px;
 	line-height: 150%;
 	font-weight: bold;

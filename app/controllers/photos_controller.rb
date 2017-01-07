@@ -11,6 +11,12 @@ class PhotosController < ApplicationController
     @saved_photos = Photo.where(user_id: current_user.id)    
   end
 
+  def saved_order
+    if params[:position]
+      
+    end
+  end
+
   # GET /photos (show the feed)
   def index
     @photos = Photo.select(:id, :url).where(user_id: current_user.id).where(status: 'pending')
