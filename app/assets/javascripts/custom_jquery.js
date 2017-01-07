@@ -13,24 +13,24 @@ $(document).on('turbolinks:load', function() {
   // Drag and drop for photos in feed
   $( function() {
       $("#sortable").sortable({
-        revert: true
+        // element slides into place smoothly once dropped
+        revert: true,
+        // changes button text to "Save Photo Order"
+        update: function( event, ui ) {
+          $("#save-photo-order").text("Save Photo Order")
+        } 
       });
-      // $( "#draggable" ).draggable({
-      //   connectToSortable: "#sortable",
-      //   helper: "clone",
-      //   revert: "invalid"
-      // });
   });
 
-  // 
-  $( "#save-photo-order" ).click(function(){
-      var sorted = $("#sortable").sortable( "serialize", { key: "position" } );
-      console.log(sorted);
+  // Saves order of photos
+  $("#save-photo-order").click(function(){
+      var sorted = $("#sortable").sortable( "serialize");
       $.ajax({
         type  : 'POST',
-        url   : '',
-        data  : $('.sortable').sortable('serialize') 
+        url   : '/photos/save_order',
+        data  : sorted 
       });
+      $("#save-photo-order").text("Saved"); // Changes button text to "Saved"
   });
 
 });

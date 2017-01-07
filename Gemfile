@@ -44,7 +44,7 @@ group :development, :test do
 
   # More stable debugger than byebug
   gem 'pry'
-  gem 'pry-rails'
+  gem 'pry-byebug'
 
   # Use mysql as the database for Active Record
   gem 'mysql2', '~> 0.4.4'

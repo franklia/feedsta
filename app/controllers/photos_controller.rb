@@ -11,15 +11,21 @@ class PhotosController < ApplicationController
     @saved_photos = Photo.where(user_id: current_user.id)    
   end
 
-  def saved_order
+  # post to save the photo order
+  def save_order
     if params[:position]
-      
+      @photos_to_order = Photo.find(params[:position])
+      i = 1
+      @photos_to_order.each do |photo|
+        photo.update(position: i)
+        i += 1
+      end
     end
   end
 
   # GET /photos (show the feed)
   def index
-    @photos = Photo.select(:id, :url).where(user_id: current_user.id).where(status: 'pending')
+    @photos = Photo.select(:id, :url).where(user_id: current_user.id).where(status: 'pending').order(:position)
     @user = User.find_by(id: current_user.id)
 
     # Get insta account info
