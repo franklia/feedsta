@@ -6,7 +6,23 @@
 			<%= image_tag (@photo.url_url(:standard)), class: "col-xs-6 col-sm-6 col-md-4 mvl phn" %>
 		</div>
 		<%= button_to "Delete Photo", photo_path, :class => "btn btn-danger mtm mbl", :method => :delete, data: {confirm: "Are you sure you want to permanently delete this photo?"} %>
-		<%= render 'form', photo: @photo %>
+		
+		<%= simple_form_for @photo, html: {multipart: true} do |f| %>
+		  <%= f.error_notification %>
+
+		  <div class="form-inputs">
+		    <label>Show photo in feed &nbsp;&nbsp;&nbsp;&nbsp;</label>
+		    <%= f.collection_radio_buttons :status, [['saved', 'No'], ['pending', 'Yes']], :first, :last %>
+		    <%= f.input :caption, :input_html => {:rows => 12} %>
+		    <%= f.input :photo_credit %>
+		    <%= f.input :url, as: :file, label: "Select New Photo" %>
+		  </div>
+		  <br>
+		  <div class="form-actions">
+		    <%= f.button :submit, "Save Photo", class: "btn-success" %>
+		  </div>
+		<% end %>
+
 	</div>
 </div>
 <%= render "layouts/container-end" %>
