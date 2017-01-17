@@ -6,7 +6,7 @@
     <%= f.collection_radio_buttons :status, [['saved', 'No'], ['pending', 'Yes']], :first, :last %>
     <%= f.input :caption, :input_html => {:rows => 12} %>
     <%= f.input :photo_credit %>
-    <%= f.input :url, as: :file, label: "Select New Photo", required: true %>
+    <%= f.input :url, as: :file, label: "Select New Photo" %>
   </div>
   <br>
   <div class="form-actions">
