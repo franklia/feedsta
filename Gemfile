@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'cloudinary'
+# Figaro used for ENV variables which are stored in config/application.yml
 gem 'figaro'
 
 # Use Puma as the app server
