@@ -5,11 +5,11 @@
 	  <% unless @saved_photos.blank? %>	
 	      <% @saved_photos.each do |photo| %>
 	      	<a href="<%= edit_photo_path(id: photo.id) %>">
-	          <div class="photo-wrapper col-xs-4 col-sm-4 col-md-4">
-	            <%= image_tag(photo.url_url(:standard), class: "img-responsive") %>
-	          </div> 
+	           <div class="photo-wrapper col-xs-4 col-sm-4 col-md-4" style="background-image: url(<%= photo.url_url(:standard)%>); background-size: cover; float: left; width: 32.2%"></div>
 	        </a>
 	      <% end %>
 	  <% end %>
 	</div> <!-- Row -->
 <%= render "layouts/container-start" %>
+
+
