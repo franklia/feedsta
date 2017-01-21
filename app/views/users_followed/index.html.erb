@@ -1,2 +1,13 @@
-<h1>UsersFollowed#index</h1>
-<p>Find me in app/views/users_followed/index.html.erb</p>
+<%= render "layouts/container-start" %>
+    <h1>Followers</h1>
+    <button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
+	  Followers <span style="float: right;"><%= @followers %></span>
+	</button>
+	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
+	  Following<span class="pull-right"><%= @following %></span>
+	</button>
+	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
+	  Not following me back<span class="pull-right"><%= @not_following %></span>
+	</button>
+
+<%= render "layouts/container-start" %>

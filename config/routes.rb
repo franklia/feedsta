@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'users_followed/index'
-
-  get 'users_followed/unfollow'
-
-  get 'users_followed/suggest'
 
   root 'pages#home'
 
@@ -17,5 +12,9 @@ Rails.application.routes.draw do
   		post 'save_order'
   	end
   end
+
+  get 'users_followed/index'
+  get 'users_followed/unfollow'
+  get 'users_followed/suggest'
 
 end

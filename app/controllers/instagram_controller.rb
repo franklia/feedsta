@@ -5,7 +5,7 @@ class InstagramController < ApplicationController
 
 	def auth
 		if !params[:code]
-			redirect_to "https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{ENV['REDIRECT_URL']}&response_type=code"
+			redirect_to "https://api.instagram.com/oauth/authorize/?client_id=#{ENV['INSTA_CLIENT_ID']}&redirect_uri=#{ENV['REDIRECT_URL']}&response_type=code&scope=basic+public_content+follower_list+relationships"
 		else
 			client_id = ENV['INSTA_CLIENT_ID']
 			client_secret = ENV['INSTA_SECRET_KEY']
