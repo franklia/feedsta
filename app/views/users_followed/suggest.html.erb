@@ -1,2 +1,4 @@
-<h1>UsersFollowed#suggest</h1>
-<p>Find me in app/views/users_followed/suggest.html.erb</p>
+<% @suggested_followers.each do | follower | %>
+	<p><%= follower[:id] %></p>
+	<p><%= follower[:username] %></p>
+<% end %>

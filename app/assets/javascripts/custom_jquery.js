@@ -33,4 +33,21 @@ $(document).on('turbolinks:load', function() {
       $("#save-photo-order").text("Saved"); // Changes button text to "Saved"
   });
 
+  // Search by hashtag on followers page
+  $("#find-followers").click(function(){
+    
+      $("#follower-list").empty(); // empty results div so new search does not add on top
+
+      var hashtag = $("#hashtag-text").val();
+
+      $.ajax({
+        type: 'POST',
+        url: '/users_followed/suggest',
+        data: {data: hashtag},
+        success: function(data, textStatus, jQxhr){
+          $("#follower-list").append(data)
+        }
+      });
+  });
+
 });

@@ -22,10 +22,19 @@
 /* RESETS */
 
 body, html {
-	height: 100%;
 	height: 0;
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
+}
+
+// Stops scroll right to left (but not left to right)
+body {
+	overflow-x: hidden;
+	
+}
+
+#special-wrapper{
+
 }
 
 h1 {
@@ -35,6 +44,7 @@ h1 {
 
 h2 {
 	margin-bottom: 20px;
+	font-size: 22px;
 }
 
 h3 {
@@ -103,6 +113,12 @@ h3 {
 .app-container {
 	margin-top: 80px;
 	margin-bottom: 80px;
+}
+
+// Place around any content you want away from edge of mobile screen
+.padding-container {
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #app-header {
@@ -214,6 +230,7 @@ label.collection_radio_buttons {
 	font-size: 16px;
 	line-height: 150%;
 }
+
 .account-bio h4 {
 	margin: 5px 10px 5px 10px;
 	font-size: 16px;
@@ -228,9 +245,23 @@ label.collection_radio_buttons {
 	background-color: white;
 }
 
-// Followers Page
+// Marketing Pages
+
+#pages-container {
+	background-color: #fff;
+	text-align: center;
+	padding: 25px 10px;
+}
+
+/* Followers Page */
 
 .btn-followers {
 	text-align: left;
 	font-size: 22px;
 }
+
+#suggest-hashtags {
+	// width: 100%;
+
+}
+
