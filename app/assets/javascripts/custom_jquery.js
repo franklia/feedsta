@@ -33,11 +33,13 @@ $(document).on('turbolinks:load', function() {
       $("#save-photo-order").text("Saved"); // Changes button text to "Saved"
   });
 
+  $(".spinner").hide(); // Hide spinner for function below
+
   // Search by hashtag on followers page
   $("#find-followers").click(function(){
-    
-      $("#follower-list").empty(); // empty results div so new search does not add on top
 
+      $("#follower-list").empty(); // empty results div so new search does not add on top
+      $(".spinner").show();
       var hashtag = $("#hashtag-text").val();
 
       $.ajax({
@@ -45,6 +47,7 @@ $(document).on('turbolinks:load', function() {
         url: '/users_followed/suggest',
         data: {data: hashtag},
         success: function(data, textStatus, jQxhr){
+          $(".spinner").hide();
           $("#follower-list").append(data)
         }
       });

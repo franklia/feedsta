@@ -30,11 +30,6 @@ body, html {
 // Stops scroll right to left (but not left to right)
 body {
 	overflow-x: hidden;
-	
-}
-
-#special-wrapper{
-
 }
 
 h1 {
@@ -262,6 +257,9 @@ label.collection_radio_buttons {
 
 #suggest-hashtags {
 	// width: 100%;
+}
 
+.spinner {
+	margin-left: 25px;
 }
 

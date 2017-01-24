@@ -72,6 +72,8 @@ class UsersFollowedController < ApplicationController
         @suggested_followers << {id: data["user"]["id"], username: data["user"]["username"]}
       end
 
+      @unique_followers = @suggested_followers.uniq { |hash| hash[:id] }
+
     end
   end
 end

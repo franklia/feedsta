@@ -1,4 +1,8 @@
-<% @suggested_followers.each do | follower | %>
-	<p><%= follower[:id] %></p>
-	<p><%= follower[:username] %></p>
+<% if @unique_followers.empty? %>
+	<p>Sorry, we found no Instagram users for that hashtag</p>
+<% else %>
+	<% @unique_followers.each do | follower | %>
+		<span style="line-height: 250%; padding-left: 10px;"><%= follower[:username] %></span>
+		<button type="button" class="btn btn-primary pull-right">Follow</button>
+	<% end %>
 <% end %>

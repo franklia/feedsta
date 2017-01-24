@@ -14,6 +14,8 @@
 	<h2 class="mtl">Find Followers By Hashtag</h2>
 	<input type="text" id="hashtag-text" class="form-control" placeholder="Enter tag without hash in front"><br>
 	<button id="find-followers" class="btn btn-primary" type="button">Find Followers</button>
+	<br><br>
+	<div class="spinner"><br><%= image_tag("ajax-loader.gif") %></div>
 	<div id="follower-list"></div>
   </div>
 <%= render "layouts/container-start" %>
