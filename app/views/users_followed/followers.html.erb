@@ -1,0 +1,21 @@
+<%= render "layouts/container-start" %>
+  <div class="padding-container">
+	<h1>Followers</h1>
+		<ul class="list-group">
+			<% @following_response['data'].each do |array| %>
+				<form action="" class="form-inline">
+					<%= image_tag(array["profile_picture"], size: "35", class: "d-inline") %>
+					<span><%= array["username"] %></span>
+					<!-- <label for="<%= array["id"] %>"><%= array["username"] %></label> -->
+					<input type="text" class="hidden" name="id" id="<%= array["id"] %>" value="<%= array["id"] %>">
+					<button type="submit" class="btn btn-default">Unfollow</button>
+				</form>
+
+<!-- 				  <li class="list-group-item">
+				  	<span><%= array["username"] %></span>
+				  	<a href="<%= "#" %>" class="btn btn-primary" role="button">Unfollow</a>
+				  </li> -->
+		    <% end %>
+    	</ul>
+
+<%= render "layouts/container-end" %>

@@ -1,21 +1,26 @@
 <%= render "layouts/container-start" %>
   <div class="padding-container">
-    <h1>Followers</h1>
+    <h1>Follower Summary</h1>
     <button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
-	  Followers <span style="float: right;"><%= @followers %></span>
+	  Following Me <span style="float: right;"><%= @followers %></span>
 	</button>
-	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
-	  Following<span class="pull-right"><%= @following %></span>
-	</button>
+	<!-- <button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
+	  I'm Following<span class="pull-right"><%= @following %></span>
+	</button> -->
+	<a href="<%= users_followed_followers_path %>" class="btn btn-primary btn-lg btn-block btn-followers" role="button">I'm Following<span class="pull-right"><%= @following %></a>
+<!-- 	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
+	  I'm Following<span class="pull-right"><%= @following %></span>
+	</button> -->
+
 	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
 	  Not following me back<span class="pull-right"><%= @not_following %>&nbsp;&nbsp;<i class='fa fa-chevron-down' aria-hidden='true'></i></span>
 	</button>
 
-	<h2 class="mtl">Find Followers By Hashtag</h2>
+<!-- 	<h2 class="mtl">Find Followers By Hashtag</h2>
 	<input type="text" id="hashtag-text" class="form-control" placeholder="Enter tag without hash in front"><br>
 	<button id="find-followers" class="btn btn-primary" type="button">Find Followers</button>
 	<br><br>
 	<div class="spinner"><br><%= image_tag("ajax-loader.gif") %></div>
 	<div id="follower-list"></div>
-  </div>
-<%= render "layouts/container-start" %>
+  </div> -->
+<%= render "layouts/container-end" %>
