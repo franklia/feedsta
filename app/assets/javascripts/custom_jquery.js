@@ -53,4 +53,23 @@ $(document).on('turbolinks:load', function() {
       });
   });
 
+  // Request to unfollow
+  $(".unfollow").click(function(){
+      var token = $("#account_token").val();;
+      var user_id = this.id;
+      var url = "https://api.instagram.com/v1/users/" + user_id + "/relationship?access_token=" + token + "&action=follow";
+      console.log(url);
+      $("#" + user_id).hide(); // Hide button for function below
+      $("#spinner-" + user_id).show();
+
+      $.ajax({
+        type: 'POST',
+        url: url,
+        success: function(data, textStatus, jQxhr){
+          $("#spinner-" + user_id).hide();
+
+        }
+      });
+  });
+
 });

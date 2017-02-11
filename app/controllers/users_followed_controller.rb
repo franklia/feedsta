@@ -1,73 +1,36 @@
 class UsersFollowedController < ApplicationController
+
+  before_filter :get_token  #, :except => [:create, :update, :destroy]
+
   def index
-  	# Get insta followers
-    insta_account = InstaAccount.find_by(user_id: current_user.id)
-    uri = URI('https://api.instagram.com/v1/users/self/followed-by/')
-    params = {'access_token' => insta_account.token}
-    uri.query = URI.encode_www_form(params)
+  	
+    # Get users following me
+    @followers_response = get_followers()
+    @followers_num = @followers_response['data'].length
 
-    Net::HTTP.start(uri.host, uri.port,
-      :use_ssl => uri.scheme == 'https') do |http|
-      request = Net::HTTP::Get.new uri
-      response = http.request request 
-      @followers_response = JSON.parse(response.body)
-    end
-
-    @insta_followers = []
-    @followers_response['data'].each do |array|
-    @insta_followers << array['id']
-    end
-
-    @followers = @insta_followers.length
-
-    # Get insta following
-    uri = URI('https://api.instagram.com/v1/users/self/follows/')
-    params = {'access_token' => insta_account.token}
-    uri.query = URI.encode_www_form(params)
-
-    Net::HTTP.start(uri.host, uri.port,
-      :use_ssl => uri.scheme == 'https') do |http|
-      request = Net::HTTP::Get.new uri
-      response = http.request request 
-      @following_response = JSON.parse(response.body)
-    end
-
-    @insta_following = []
-    @following_response['data'].each do |array|
-    @insta_following << array['id']
-    end
-
-    @following = @insta_following.length
+    
+    # Get users i'm following
+    @following_response = get_following()
+    @following_num = @following_response['data'].length
 
     # Get "Not following me back" 
-    @not_following = @insta_following - @insta_followers
-    @not_following = @not_following.length
+    @not_following = @following_response['data'] - @followers_response['data']
+    @not_following_num = @not_following.length
 
   end
 
   def followers
-    # Get insta following
-    insta_account = InstaAccount.find_by(user_id: current_user.id)
-    uri = URI('https://api.instagram.com/v1/users/self/follows/')
-    params = {'access_token' => insta_account.token}
-    uri.query = URI.encode_www_form(params)
+    @followers = get_followers()
+  end
 
-    Net::HTTP.start(uri.host, uri.port,
-      :use_ssl => uri.scheme == 'https') do |http|
-      request = Net::HTTP::Get.new uri
-      response = http.request request 
-      @following_response = JSON.parse(response.body)
-    end
-    # binding.pry
-
-    # @insta_following = []
-    # @following_response['data'].each do |array|
-    # @insta_following << array['id']
-    # end
-
+  def following
+    @following = get_following()
   end
 
   def unfollow
+    @followers = get_followers()
+    @following = get_following()
+    @following_not = @following['data'] - @followers['data']
   end
 
   # def suggest
@@ -96,4 +59,33 @@ class UsersFollowedController < ApplicationController
 
   #   end
   # end
+
+  private
+
+    def get_token
+      @insta_account = InstaAccount.find_by(user_id: current_user.id)
+      @params = {'access_token' => @insta_account.token}
+    end
+
+    def http_request(uri)
+      Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        request = Net::HTTP::Get.new uri
+        response = http.request request 
+        return json = JSON.parse(response.body)
+      end
+    end
+
+    def get_followers()
+      # return json file of followers
+      uri = URI('https://api.instagram.com/v1/users/self/followed-by/')
+      uri.query = URI.encode_www_form(@params)
+      return http_request(uri)
+    end
+
+    def get_following()
+      uri = URI('https://api.instagram.com/v1/users/self/follows/')
+      uri.query = URI.encode_www_form(@params)
+      return http_request(uri)
+    end
+
 end

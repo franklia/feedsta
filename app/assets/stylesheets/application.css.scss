@@ -248,7 +248,7 @@ label.collection_radio_buttons {
 	padding: 25px 10px;
 }
 
-/* Followers Page */
+/* Users Followed Group */
 
 .btn-followers {
 	text-align: left;
@@ -262,4 +262,22 @@ label.collection_radio_buttons {
 .spinner {
 	margin-left: 25px;
 }
+
+.followers ul {
+	margin: 0;
+}
+
+.followers span {
+	font-size: 20px;
+	margin-left: 10px;
+}
+
+.followers img {
+	margin-bottom: 5px;	
+}
+
+.follower-display {
+	display: inline;
+}
+
 

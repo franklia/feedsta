@@ -1,2 +1,16 @@
-<h1>UsersFollowed#unfollow</h1>
-<p>Find me in app/views/users_followed/unfollow.html.erb</p>
+<%= render "layouts/container-start" %>
+  <div class="padding-container followers">
+	<h1>Not Following Me Back</h1>
+		<ul class="list-group">
+			<% @following_not.each do |array| %>
+				<div class="follower-display">
+					<%= image_tag(array["profile_picture"], size: "50", class: "d-inline img-circle") %>
+					<span><%= array["username"] %></span>
+					<span id="spinner-<%= array["id"] %>" class="spinner pull-right"><%= image_tag("ajax-loader.gif") %></span>
+					<button id="<%= array["id"] %>" type="button" class="btn btn-default pull-right btn-success unfollow">Unfollow</button>
+				</div>
+		    <% end %>
+    	</ul>
+      <input type="text" class="hidden" id="account_token" value="<%= @insta_account.token %>">
+  </div>
+<%= render "layouts/container-end" %>

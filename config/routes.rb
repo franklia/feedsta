@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   end
 
   get 'users_followed/index'
-  get 'users_followed/unfollow'
   # post 'users_followed/suggest'
   get 'users_followed/followers'
+  get 'users_followed/following'
+  get 'users_followed/unfollow'
 
 end

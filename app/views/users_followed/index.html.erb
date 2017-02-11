@@ -1,20 +1,13 @@
 <%= render "layouts/container-start" %>
   <div class="padding-container">
     <h1>Follower Summary</h1>
-    <button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
-	  Following Me <span style="float: right;"><%= @followers %></span>
-	</button>
-	<!-- <button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
-	  I'm Following<span class="pull-right"><%= @following %></span>
-	</button> -->
-	<a href="<%= users_followed_followers_path %>" class="btn btn-primary btn-lg btn-block btn-followers" role="button">I'm Following<span class="pull-right"><%= @following %></a>
-<!-- 	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
-	  I'm Following<span class="pull-right"><%= @following %></span>
-	</button> -->
+    <a href="<%= users_followed_followers_path %>" class="btn btn-primary btn-lg btn-block btn-followers" role="button">Following Me<span style="float: right;"><%= @followers_num %></span></a>
 
-	<button class="btn btn-primary btn-lg btn-block btn-followers" type="button">
-	  Not following me back<span class="pull-right"><%= @not_following %>&nbsp;&nbsp;<i class='fa fa-chevron-down' aria-hidden='true'></i></span>
-	</button>
+	<a href="<%= users_followed_following_path %>" class="btn btn-primary btn-lg btn-block btn-followers" role="button">I'm Following<span class="pull-right"><%= @following_num %></a>
+
+	<a href="<%= users_followed_unfollow_path %>" class="btn btn-primary btn-lg btn-block btn-followers" role="button">
+	  Not following me back<span class="pull-right"><%= @not_following_num %></span>
+	</a>
 
 <!-- 	<h2 class="mtl">Find Followers By Hashtag</h2>
 	<input type="text" id="hashtag-text" class="form-control" placeholder="Enter tag without hash in front"><br>
