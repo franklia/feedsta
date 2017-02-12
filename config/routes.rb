@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get 'users_followed/followers'
   get 'users_followed/following'
   get 'users_followed/unfollow'
+  post 'users_followed/insta_unfollow'
 
 end

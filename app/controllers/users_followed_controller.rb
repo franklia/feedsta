@@ -1,6 +1,6 @@
 class UsersFollowedController < ApplicationController
 
-  before_filter :get_token  #, :except => [:create, :update, :destroy]
+  before_action :get_token  #, :except => [:create, :update, :destroy]
 
   def index
   	
@@ -31,6 +31,52 @@ class UsersFollowedController < ApplicationController
     @followers = get_followers()
     @following = get_following()
     @following_not = @following['data'] - @followers['data']
+  end
+
+  def insta_unfollow
+    if params[:user_id]
+      @user_id = params[:user_id].to_i
+      @access_token = @token["access_token"]
+      @parameters = {'access_token' => @insta_account.token, 'action' => 'unfollow'}
+
+      url = "https://api.instagram.com/v1/users/#{@user_id}/relationship";
+      uri = URI(url)
+      form_data = URI.encode_www_form(@parameters)
+
+      Net::HTTP.start(uri.host, uri.port,
+        :use_ssl => uri.scheme == 'https') do |http|
+        request = Net::HTTP::Post.new uri
+        request.body = form_data
+        response = http.request request 
+        @unfollow_response = JSON.parse(response.body)
+      end
+
+      render json: @unfollow_response
+
+    end
+  end
+
+  def insta_follow
+    if params[:user_id]
+      @user_id = params[:user_id].to_i
+      @access_token = @token["access_token"]
+      @parameters = {'access_token' => @insta_account.token, 'action' => 'follow'}
+
+      url = "https://api.instagram.com/v1/users/#{@user_id}/relationship";
+      uri = URI(url)
+      form_data = URI.encode_www_form(@parameters)
+
+      Net::HTTP.start(uri.host, uri.port,
+        :use_ssl => uri.scheme == 'https') do |http|
+        request = Net::HTTP::Post.new uri
+        request.body = form_data
+        response = http.request request 
+        @follow_response = JSON.parse(response.body)
+      end
+
+      render json: @follow_response
+
+    end
   end
 
   # def suggest
@@ -64,7 +110,7 @@ class UsersFollowedController < ApplicationController
 
     def get_token
       @insta_account = InstaAccount.find_by(user_id: current_user.id)
-      @params = {'access_token' => @insta_account.token}
+      @token = {'access_token' => @insta_account.token}
     end
 
     def http_request(uri)
@@ -76,15 +122,14 @@ class UsersFollowedController < ApplicationController
     end
 
     def get_followers()
-      # return json file of followers
       uri = URI('https://api.instagram.com/v1/users/self/followed-by/')
-      uri.query = URI.encode_www_form(@params)
+      uri.query = URI.encode_www_form(@token)
       return http_request(uri)
     end
 
     def get_following()
       uri = URI('https://api.instagram.com/v1/users/self/follows/')
-      uri.query = URI.encode_www_form(@params)
+      uri.query = URI.encode_www_form(@token)
       return http_request(uri)
     end
 

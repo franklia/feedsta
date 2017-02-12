@@ -55,21 +55,50 @@ $(document).on('turbolinks:load', function() {
 
   // Request to unfollow
   $(".unfollow").click(function(){
-      var token = $("#account_token").val();;
       var user_id = this.id;
-      var url = "https://api.instagram.com/v1/users/" + user_id + "/relationship?access_token=" + token + "&action=follow";
-      console.log(url);
-      $("#" + user_id).hide(); // Hide button for function below
+      $("#" + user_id).hide(); 
       $("#spinner-" + user_id).show();
 
       $.ajax({
         type: 'POST',
-        url: url,
+        url: '/users_followed/insta_unfollow',
+        data: {user_id: user_id},
         success: function(data, textStatus, jQxhr){
-          $("#spinner-" + user_id).hide();
-
+          console.log(data.meta);
+          if (data.meta['code'] == "200"){
+            $("#spinner-" + user_id).hide();
+            $("#" + user_id).removeClass("btn-success").addClass("btn-primary").text("Unfollowed").show();
+          } else {
+            $("#spinner-" + user_id).hide();
+            $("#error-msg").removeClass("hidden");
+          }
+          
         }
       });
   });
+
+  // Request to follow
+  // $(".follow").click(function(){
+  //     var user_id = this.id;
+  //     $("#" + user_id).hide(); 
+  //     $("#spinner-" + user_id).show();
+
+  //     $.ajax({
+  //       type: 'POST',
+  //       url: '/users_followed/insta_follow',
+  //       data: {user_id: user_id},
+  //       success: function(data, textStatus, jQxhr){
+  //         console.log(data.meta);
+  //         if (data.meta['code'] == "200"){
+  //           $("#spinner-" + user_id).hide();
+  //           $("#" + user_id).removeClass("btn-primary follow").addClass("btn-success unfollow").show();
+  //         } else {
+  //           $("#spinner-" + user_id).hide();
+  //           $("#error-msg").removeClass("hidden");
+  //         }
+          
+  //       }
+  //     });
+  // });
 
 });

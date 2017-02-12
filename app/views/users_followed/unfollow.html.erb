@@ -8,9 +8,10 @@
 					<span><%= array["username"] %></span>
 					<span id="spinner-<%= array["id"] %>" class="spinner pull-right"><%= image_tag("ajax-loader.gif") %></span>
 					<button id="<%= array["id"] %>" type="button" class="btn btn-default pull-right btn-success unfollow">Unfollow</button>
+					<span id="error-msg" class="pull-right hidden">Sorry, an error occurred</span>
 				</div>
 		    <% end %>
     	</ul>
-      <input type="text" class="hidden" id="account_token" value="<%= @insta_account.token %>">
+<!--       <input type="text" class="hidden" id="account_token" value="<%= @insta_account.token %>"> -->
   </div>
 <%= render "layouts/container-end" %>
