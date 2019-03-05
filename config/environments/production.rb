@@ -85,9 +85,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Frank added these settings to get mailer working on dev as per https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
-  config.action_mailer.default_url_options = { :host => 'feedsta.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => ENV["ACTION_MAILER_HOST"] }
 
-  Rails.application.routes.default_url_options[:host] = 'feedsta.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = ENV["ACTION_MAILER_HOST"]
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true

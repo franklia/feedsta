@@ -13,12 +13,12 @@ class InstagramController < ApplicationController
 			redirect_uri = ENV["REDIRECT_URL"]
 			code = params[:code]
 
-		    params = {'client_id' => client_id, 'client_secret' => client_secret, 'grant_type' => grant_type, 'redirect_uri' => redirect_uri, 'code' => code}
+	    params = {'client_id' => client_id, 'client_secret' => client_secret, 'grant_type' => grant_type, 'redirect_uri' => redirect_uri, 'code' => code}
 
-		    post = Net::HTTP.post_form(URI.parse("https://api.instagram.com/oauth/access_token"), params)
-		    @response = JSON.parse(post.body)
+	    post = Net::HTTP.post_form(URI.parse("https://api.instagram.com/oauth/access_token"), params)
+	    @response = JSON.parse(post.body)
 
-		    @account = InstaAccount.new
+	    @account = InstaAccount.new
 			@account.token = @response['access_token']
 			@account.username = @response['user']['username']
 			@account.name = @response['user']['full_name'] unless @response['user']['full_name'].blank?
@@ -31,9 +31,7 @@ class InstagramController < ApplicationController
 	end
 
 	def show
-			
+
 	end
 
 end
-
-
